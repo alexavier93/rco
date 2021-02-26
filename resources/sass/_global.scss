@@ -1,0 +1,83 @@
+.bg-blue {
+    background-color: $primarycolor !important;
+}
+.bg-orange {
+    background-color: $secondcolor !important;
+}
+
+.title-section {
+    h3 {
+        font-size: 15px;
+        color: #ed1c24;
+        font-weight: 700;
+        margin-bottom: 9px;
+        position: relative;
+        display: inline-block;
+    }
+
+    h2 {
+        font-family: "Barlow", sans-serif;
+        font-size: 30px;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 700;
+        position: relative;
+        display: block;
+    }
+}
+
+.title-section-center {
+    max-width: 660px;
+    margin: -8px auto 60px;
+    text-align: center;
+    position: relative;
+}
+
+.page-title-content {
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    text-align: center;
+    padding-top: 200px;
+    height: 450px;
+    border-bottom: 10px solid $primarycolor;
+
+    h1 {
+        font-family: "Barlow", sans-serif;
+        color: #fff;
+        font-size: 45px;
+        font-weight: 600;
+    }
+
+    h5 {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+
+.btn-mais {
+    font-size: 14px;
+    font-weight: 600;
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+
+.msg-sucesso {
+    background: #40a24f;
+    padding: 5px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.msg-sucesso {
+    background: #e42f2f;
+    padding: 5px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: none;
+}

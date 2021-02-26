@@ -1,0 +1,390 @@
+#imoveis {
+    position: relative;
+
+    .content {
+        padding: 40px 0;
+
+        .filtros {
+            text-align: center;
+
+            li {
+                cursor: pointer;
+                list-style: none;
+                padding: 15px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                text-transform: uppercase;
+
+                span {
+                    color: #333;
+                    font-family: "Barlow", sans-serif;
+                    font-weight: 200;
+                    text-decoration: none;
+                    width: 100%;
+                }
+            }
+
+            .filter.all {
+                color: #a7a9ac !important;
+            }
+
+            li.active {
+                border: 1px solid #ed1c24;
+
+                span {
+                    color: #ed1c24 !important;
+                }
+            }
+        }
+
+        .list {
+            .mix {
+                display: none;
+            }
+
+            .item {
+                margin-bottom: 25px;
+                text-decoration: none;
+
+                .img {
+                    height: 210px;
+                    position: relative;
+                    overflow: hidden;
+                    z-index: 1;
+                    -webkit-border-radius: 3px;
+                    -khtml-border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    -ms-border-radius: 3px;
+                    -o-border-radius: 3px;
+                    border-radius: 3px;
+                    margin-bottom: 0;
+
+                    .tag {
+                        position: absolute;
+                        top: 20px;
+                        right: 0;
+                        background: #ed1c24;
+                        padding: 2px 10px;
+                        color: #fff;
+                        font-style: italic;
+                        font-weight: 400;
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .content {
+                    padding: 25px;
+
+                    .label {
+                        display: block;
+                        color: $primarycolor;
+                        font-size: 13px;
+                        font-weight: 600;
+                    }
+
+                    .titulo {
+                        color: #000;
+                        font-size: 16px;
+                        font-weight: 600;
+                        line-height: 30px;
+                        margin-bottom: 0;
+                    }
+
+                    .localidade {
+                        color: #333;
+                        font-size: 12px;
+                        font-weight: 500;
+                        display: block;
+                        margin: 5px 0px;
+                    }
+
+                    .info {
+                        color: #666;
+                        width: 70%;
+
+                        .property-meta-list {
+                            overflow: hidden;
+                            margin: 0;
+
+                            > li {
+                                display: block;
+                                margin-right: 10px;
+
+                                span.label-content {
+                                    font-size: 12px;
+                                }
+
+                                span.label-property {
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    float: right;
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+                    }
+
+                    .btn-mais {
+                        background: #ed1c24;
+                        border-radius: 30px;
+                        display: block;
+                        height: 24px;
+                        width: 24px;
+                        margin-top: 10px;
+                        position: relative;
+                        text-align: center;
+                        transition: all 0.3s linear 0s;
+
+                        &:hover {
+                            background-color: $primarycolor;
+                        }
+
+                        i {
+                            line-height: 25px;
+                            color: #fff;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#imovel {
+    
+    .content {
+        margin: 50px 0;
+
+        .header {
+            margin-bottom: 30px;
+    
+            .info-imovel {
+                .titulo {
+                    font-size: 30px;
+                    font-weight: 400;
+                    line-height: 30px;
+                    color: $primarycolor;
+                }
+    
+                .localidade {
+                    color: #333;
+                    font-size: 18px;
+                    font-weight: 200;
+    
+                    i {
+                        font-size: 16px;
+                    }
+                }
+            }
+    
+            .preco-imovel {
+                text-align: right;
+    
+                h5 {
+                    color: #666;
+                    font-size: 20px;
+                }
+    
+                .valor {
+                    font-size: 28px;
+                    font-weight: 500;
+                    color: #333;
+                }
+            }
+    
+            .codigo {
+                text-transform: uppercase;
+                font-size: 16px;
+    
+                strong {
+                    color: $primarycolor;
+                }
+    
+                span {
+                    color: #666;
+                }
+            }
+    
+            .share {
+                ul {
+                    padding: 0;
+                    display: inline;
+    
+                    li {
+                        list-style: none;
+                        display: inline;
+    
+                        a {
+                            color: #2f358f;
+                            font-size: 26px;
+                            text-decoration: none;
+    
+                            &:hover {
+                                color: #2f358f;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-content {
+
+            .nav-pills .nav-link {
+                border: 1px solid #d0d0d0;
+                margin-right: 5px;
+                color: #666;
+            }
+    
+            .nav-pills .nav-link.active,
+            .nav-pills .show > .nav-link {
+                color: #fff;
+                background-color: $primarycolor;
+                border-color: $primarycolor;
+            }
+
+
+            .imovelCarousel {
+				.carousel-item {
+					height: 420px;
+					position: relative;
+					overflow: hidden;
+				}
+			}
+
+			#map-canvas {
+				width: 100%;
+				height: 500px;
+			}
+
+
+
+            .informacoes-imovel {
+                color: #333;
+                font-weight: 400;
+                font-size: 16px;
+    
+                h4 {
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    margin-top: 15px;
+                }
+    
+                .descricao {
+                    margin: 20px 0;
+                }
+    
+                .detalhes {
+                    margin: 30px 0;
+                    max-height: 250px;
+    
+                    ul {
+                        padding: 0;
+                        margin: 0;
+    
+                        li {
+                            list-style: none;
+                            display: inline-block;
+                            width: 49%;
+                            margin-bottom: 5px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+    
+                .diferenciais {
+                    margin: 30px 0;
+                    max-height: 250px;
+    
+                    ul {
+                        padding: 0;
+                        margin: 0;
+    
+                        li {
+                            list-style: none;
+                            display: inline-block;
+                            width: 32%;
+                            margin-bottom: 5px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+    
+                .status {
+                    .status-item {
+                        .progress-bar {
+                            background: $primarycolor;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .side-content {
+            .form-imovel {
+                form {
+                    input {
+                        background: #f4f4f4;
+                        font-size: 16px;
+                        font-weight: 400;
+                        padding: 15px;
+                        border: none;
+                    }
+
+                    textarea {
+                        background: #f4f4f4;
+                        font-size: 16px;
+                        font-weight: 400;
+                        padding: 15px;
+                        border: none;
+                    }
+
+                    button {
+                        background: $primarycolor;
+                        border: none;
+                        color: #fff;
+                        font-size: 16px;
+                        font-weight: 400;
+                        padding: 18px 20px;
+                        line-height: 1em;
+                    }
+                }
+            }
+
+            .box-info-contato {
+                ul {
+                    padding: 0;
+
+                    li {
+                        font-size: 15px;
+                        color: #333;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        font-weight: 500;
+
+                        .icon {
+                            display: flex;
+                            width: 35px;
+                            height: 35px;
+                            align-items: center;
+                            justify-content: center;
+                            margin-right: 10px;
+
+                            i {
+                                color: $primarycolor;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
