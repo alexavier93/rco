@@ -37,6 +37,7 @@ class ComposerStaticInitb433247db5e301b3616d14fbf89909f0
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
+        'b4e3f29b106af37a2bb239f73cdf68c7' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -551,9 +552,11 @@ class ComposerStaticInitb433247db5e301b3616d14fbf89909f0
         'App\\Http\\Controllers\\Admin\\BannerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BannerController.php',
         'App\\Http\\Controllers\\Admin\\CategoriaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoriaController.php',
         'App\\Http\\Controllers\\Admin\\ConfigController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ConfigController.php',
+        'App\\Http\\Controllers\\Admin\\DiferencialController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DiferencialController.php',
         'App\\Http\\Controllers\\Admin\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/HomeController.php',
         'App\\Http\\Controllers\\Admin\\ImovelController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ImovelController.php',
         'App\\Http\\Controllers\\Admin\\MessageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/MessageController.php',
+        'App\\Http\\Controllers\\Admin\\StatusController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/StatusController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -583,9 +586,13 @@ class ComposerStaticInitb433247db5e301b3616d14fbf89909f0
         'App\\Http\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserRequest.php',
         'App\\Models\\Banner' => __DIR__ . '/../..' . '/app/Models/Banner.php',
         'App\\Models\\Categoria' => __DIR__ . '/../..' . '/app/Models/Categoria.php',
+        'App\\Models\\Diferencial' => __DIR__ . '/../..' . '/app/Models/Diferencial.php',
         'App\\Models\\Imovel' => __DIR__ . '/../..' . '/app/Models/Imovel.php',
         'App\\Models\\ImovelImage' => __DIR__ . '/../..' . '/app/Models/ImovelImage.php',
+        'App\\Models\\ImovelPlanta' => __DIR__ . '/../..' . '/app/Models/ImovelPlanta.php',
+        'App\\Models\\ImovelStatus' => __DIR__ . '/../..' . '/app/Models/ImovelStatus.php',
         'App\\Models\\Message' => __DIR__ . '/../..' . '/app/Models/Message.php',
+        'App\\Models\\Status' => __DIR__ . '/../..' . '/app/Models/Status.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BannerResquest;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -52,7 +53,7 @@ class BannerController extends Controller
      * validação do banner 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
      * 
      */
-    public function store(Request $request)
+    public function store(BannerResquest $request)
     {
 
         $data = $request->all();
@@ -64,12 +65,16 @@ class BannerController extends Controller
         $image = Image::make(public_path("storage/{$image}"))->fit(1920, 825);
         $image->save();
 
-        if (isset($request->status)) {
+        if ($request->status == 1) {
             $data['status'] = 1;
+        } else {
+            $data['status'] = 0;
         }
 
-        if (isset($request->title_active)) {
+        if ($request->title_active == 1) {
             $data['title_active'] = 1;
+        } else {
+            $data['title_active'] = 0;
         }
 
         $this->banner->create($data);
@@ -97,7 +102,7 @@ class BannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $banner)
+    public function update(BannerResquest $request, $banner)
     {
         $data = $request->all();
         

@@ -16,7 +16,8 @@ php artisan make:factory MessageFactory --model=Message
 //php artisan db:seed
 
 //Roda apenas um
-//php artisan make:seeder UserSeeder
+php artisan make:seeder UserSeeder
+php artisan db:seed --class=UserSeeder
 
 // Instalando o Larava/UI
 composer require laravel/ui

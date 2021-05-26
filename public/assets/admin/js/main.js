@@ -166,7 +166,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\rco\resources\js\admin\main.js */"./resources/js/admin/main.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\energy\resources\js\admin\main.js */"./resources/js/admin/main.js");
 
 
 /***/ })

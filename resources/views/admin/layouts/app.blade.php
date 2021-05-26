@@ -48,7 +48,7 @@
 
             <!-- Nav Item - Categorias -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.imoveis.index') }}"><i class="fas fa-list-ul"></i><span>Imóveis</span></a>
+                <a class="nav-link" href="{{ route('admin.imoveis.index') }}"><i class="fas fa-home"></i><span>Imóveis</span></a>
             </li>
             
             <!-- Nav Item - Categorias -->

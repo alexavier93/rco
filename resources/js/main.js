@@ -85,6 +85,30 @@
 			},
 		}
     });
+
+    
+
+    $('.carrosel-depoimentos').owlCarousel({
+        loop: true,
+        margin: 10,
+        responsiveClass: true,
+        nav: false,
+        dots: true,
+        responsive: {
+            0: {
+            items: 1,
+            },
+            600: {
+            items: 1,
+            },
+            1000: {
+            items: 1,
+            
+            loop: false,
+            margin: 20
+            }
+        }
+    });
     
 
     $('.imoveis-carousel').owlCarousel({
@@ -145,6 +169,16 @@
             duration: 400, 
             effects: "stagger(34ms) rotateX(20deg) scale(0.01) translateZ(1000px) fade", 
             easing: "ease"
+        }
+    });
+
+
+    
+    $(".youtube").fancybox({
+        openEffect: 'none',
+        closeEffect: 'none',
+        helpers: {
+            media: {}
         }
     });
 

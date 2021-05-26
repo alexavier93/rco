@@ -32,7 +32,11 @@
 
                             </div>
 
-                            <div class="col-md-6 text-right"> </div>
+                            <div class="col-md-6 text-end">
+                                @if ($imovel->logo != null)
+                                    <img src="{{ asset('storage/' . $imovel->logo) }}" class="img-fluid w-25">
+                                @endif
+                            </div>
 
                         </div>
 
@@ -130,10 +134,16 @@
                                 </script>
 
                             </div>
-
+                            
+                            @isset($imovel->video)
                             <div class="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
+
+                                <div class="video-container">
+									<iframe src="https://www.youtube.com/embed/{{ $imovel->video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</div>
                                 
                             </div>
+                            @endisset
 
                         </div>
 
@@ -278,8 +288,8 @@
                                         @enderror
                                     </div>
     
-                                    <div class="text-left">
-                                        <button type="submit" class="btn btn-primary text-right">Enviar Mensagem</button>
+                                    <div class="text-start">
+                                        <button type="submit" class="btn btn-primary text-end">Enviar Mensagem</button>
                                     </div>
     
                                 </form>

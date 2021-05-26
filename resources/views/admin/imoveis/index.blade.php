@@ -48,7 +48,6 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th style="width: 20%;" scope="col">Imagem</th>
                                     <th scope="col">Nome</th>
                                     <th scope="col">Categoria</th>
                                     <th scope="col">Cidade</th>
@@ -61,7 +60,6 @@
 
                                 <tr>
                                     <td>{{ $imovel->id }}</th>
-                                    <td><img class="w-50" src="{{ asset('storage/' . $imovel->image) }}" alt=""></td>
                                     <td>{{ $imovel->nome }}</td>
                                     <td>{{ $imovel->categoriaNome }}</td>
                                     <td>{{ $imovel->cidade }}</td>

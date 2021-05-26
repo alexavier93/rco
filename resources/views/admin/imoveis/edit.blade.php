@@ -301,7 +301,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Video</label>
                                     <div class="col-md-9">
-                                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror" value="{{ $imovel->video }}">
+                                        <input type="text" name="video" class="form-control @error('video') is-invalid @enderror" value="@if ($imovel->video != null)https://www.youtube.com/watch?v=@endif{{ $imovel->video }}">
                                         @error('video')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -506,9 +506,66 @@
                 </div>
 
                 <div class="col-md-6">
-
+                    
                     <div class="col-md-12">
 
+                        <!-- Project Card Example -->
+                        <div class="card shadow mb-4">
+    
+                            <div class="card-header">
+                                <span class="m-0 font-weight-bold text-primary">Logo Empreendimento</span>
+                                <button class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#modalLogo">Upload</button>
+                            </div>
+    
+                            <div class="card-body text-center">
+
+                                @if ($imovel->logo != null)
+                                    <img src="{{ asset('storage/' . $imovel->logo) }}" class="img-fluid mx-auto w-50">
+                                @endif
+
+                                <div class="text-center">
+                                    <div class="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
+                                        <a href="{{ route('admin.imoveis.deleteLogo', ['logo' => $imovel->id]) }}" class="btn btn-danger">Excluir</a>
+                                    </div>
+                                </div>
+    
+                            </div>
+    
+                        </div>
+    
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalLogo" tabindex="-1" aria-labelledby="modalLogoLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLogoLabel">Upload Logo</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="logoUpload" action="{{ route('admin.imoveis.uploadLogo') }}" method="post" enctype="multipart/form-data">
+                                            @csrf
+    
+                                            <input type="hidden" name="imovel_id" value="{{ $imovel->id }}">
+    
+                                            <div class="form-group">
+                                                <input type="file" class="form-control-file" name="logo">
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button type="submit" form="logoUpload" class="btn btn-primary">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                
+                    <div class="col-md-12">
                         <!-- Project Card Example -->
                         <div class="card shadow mb-4">
     
@@ -524,8 +581,6 @@
 
                                 @if ($stats->id == $progresso->status_id)
                                     
-                                
-    
                                 <div class="status-item mt-2">
                                     <small>{{ $stats->nome }} <a href="{{ route('admin.imoveis.deleteProgress', ['id' => $progresso->id]) }}" class="close" title="Excluir Status">×</a></small>
                                     <div class="progress">

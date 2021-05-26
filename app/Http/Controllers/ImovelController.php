@@ -48,7 +48,7 @@ class ImovelController extends Controller
         $categorias = Categoria::all();
         $diferenciais = Diferencial::all();
         $status = Status::all();
-        $statusProgresso = ImovelStatus::all();
+        $statusProgresso = ImovelStatus::where('imovel_id', $imovel->id)->get();
 
         $images = ImovelImage::where('imovel_id', $imovel->id)->get();
         $plantas = ImovelPlanta::where('imovel_id', $imovel->id)->get();

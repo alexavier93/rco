@@ -37,8 +37,7 @@ class ImovelController extends Controller
 
         $imoveis = DB::table('imoveis')
             ->leftJoin('categorias', 'categorias.id', '=', 'imoveis.categoria_id')
-            ->leftJoin('imoveis_imagens', 'imoveis_imagens.imovel_id', '=', 'imoveis.id')
-            ->select('imoveis.*', 'categorias.nome as categoriaNome', 'imoveis_imagens.cover', 'imoveis_imagens.image')
+            ->select('imoveis.*', 'categorias.nome as categoriaNome')
             ->orderBy('id', 'desc')
             ->paginate(10);
         
@@ -70,6 +69,14 @@ class ImovelController extends Controller
 
         $slug = Str::slug($request->nome, '-');
         $data['slug'] = $slug;
+
+
+        if (!empty($request->video)) {
+            $url = $request->video;
+            $id_video = get_youtubeid($url);
+            $data['video'] = $id_video;
+        }
+
 
         $data['latitude'] = $request->lat;
         $data['longitude'] = $request->lng;
@@ -111,8 +118,7 @@ class ImovelController extends Controller
         $categorias = Categoria::all();
         $diferenciais = Diferencial::all();
         $status = Status::all();
-        $statusProgresso = ImovelStatus::all();
-
+        $statusProgresso = ImovelStatus::where('imovel_id', $imovel->id)->get();
         $images = ImovelImage::where('imovel_id', $imovel->id)->get();
         $plantas = ImovelPlanta::where('imovel_id', $imovel->id)->get();
 
@@ -143,6 +149,12 @@ class ImovelController extends Controller
             $data['view_home'] = 1;
         } else {
             $data['view_home'] = 0;
+        }
+
+        if (!empty($request->video)) {
+            $url = $request->video;
+            $id_video = get_youtubeid($url);
+            $data['video'] = $id_video;
         }
 
         $data['categoria_id'] = $request->categorias;
@@ -336,6 +348,57 @@ class ImovelController extends Controller
         }
 
     }
+
+
+    public function uploadLogo(Request $request)
+    {
+
+        $imovel_id = $request->imovel_id;
+        $imovel = $this->imovel->findOrFail($imovel_id);
+        $imovelDir = $imovel->id;
+
+        if($request->hasFile('logo'))
+        {
+
+            $logo = $request->file('logo');
+
+            $logo = $logo->store('imoveis/'.$imovelDir, 'public');
+            $data['logo'] = $logo;
+
+            $imovel->where('id', $imovel_id)->update(['logo' => $logo]);
+
+        
+                
+        }
+
+        flash('Upload realizado com sucesso!')->success();
+        return redirect()->route('admin.imoveis.edit', ['imovel' => $imovel_id]);
+        
+    }
+
+    public function deleteLogo($logo)
+    {
+
+        $imovel = $this->imovel->find($logo);
+        $id = $imovel->id;
+        $logo = $imovel->logo;
+
+        $update = $imovel->where('id', $id)->update(['logo' => null]);
+
+        if ($update == TRUE) {
+
+            if (Storage::exists($logo)) {
+                Storage::delete($logo);
+            }
+
+            flash('Logo removido com sucesso!')->success();
+            return redirect()->route('admin.imoveis.edit', ['imovel' => $id]);
+
+        }
+
+    }
+
+
 
 
 }

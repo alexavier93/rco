@@ -1,6 +1,6 @@
 #footer {
 	background-color: #4d4d4f;
-	background-image: url('/assets/images/bg-footer.png');
+	background-image: url('/assets/images/bg-footer.jpg');
 	color: #FFF;
 
 	.footer-top {
@@ -12,7 +12,8 @@
 				margin-top: 20px;
 			
 				h3 {
-					font-size: 18px;
+					color: #f68b1f;
+					font-size: 26px;
 					margin-bottom: 10px;
 					padding: 0;
 				}
@@ -31,7 +32,7 @@
 					display: flex;
 					flex-wrap: nowrap;
 					align-items: center;
-					margin: 25px 0;
+					margin: 15px 0;
 
 					.address-icon {
 						width: 30px;
@@ -39,10 +40,10 @@
 						display: flex;
 						align-items: center;
 						justify-content: center;
-						margin-right: 15px;
+						margin-right: 10px;
 						
 						i {
-							font-size: 24px;
+							font-size: 18px;
 						}
 					}
 
@@ -51,36 +52,65 @@
 					}
 				}
 
+				.contact {
+					display: flex;
+					flex-wrap: nowrap;
+					align-items: center;
+					margin: 15px 0;
+
+					.contact-icon {
+						width: 30px;
+						flex: 0 0 auto;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						margin-right: 10px;
+						
+						i {
+							font-size: 16px;
+						}
+					}
+
+					.contact-info {
+						font-size: 14px;
+					}
+				}
 
 
 
-				.form-newsletter {
+
+				.form-contato {
 					margin-bottom: 30px;
 
 					form {
 
 						input {
-							width: 20em;
+							width: 100%;
 							margin: 0;
 							border: 0;
 							border-radius: 2px;
 							font-size: 16px;
 							line-height: 1em;
-							height: 1.5em;
-							box-sizing: content-box;
+							padding: 10px;
+						}
+
+						textarea {
+							margin: 0;
+							border: 0;
+							border-radius: 2px;
+							font-size: 16px;
+							line-height: 1em;
 							padding: 10px;
 						}
 
 						button {
-							background: $primarycolor;
+							background: #f68b1f;
 							margin: 0;
 							border: 0;
 							border-radius: 2px;
 							font-size: 16px;
 							line-height: 1em;
-							height: 1.5em;
-							box-sizing: content-box;
-							padding: 10px 20px;
+							padding: 10px 15px;
 						}
 
 					}
@@ -88,10 +118,10 @@
 				}
 
 				.social {
+					margin-top: 20px;
 
 					> li {
 						padding: 0;
-						margin-right: 10px;
 						display: inline-block;
 
 						a {
@@ -100,21 +130,14 @@
 							i {
 								height: 30px;
 								width: 30px;
-								border-radius: 50%;
-								background-color: #fff;
 								line-height: 32px;
-								color: #4d4d4f;
+								color: #fff;
 								font-size: 16px;
 								position: relative;
 								text-align: center;
 								-webkit-transition: 0.5s ease-in-out;
 								-o-transition: 0.5s ease-in-out;
 								transition: 0.5s ease-in-out;
-							}
-
-						    &:hover i {
-								background-color: #808285;
-								color: #fff;
 							}
 
 						}
@@ -131,7 +154,7 @@
 	}
 
 	.bottom-footer {
-		background: $primarycolor;
+		background: #f68b1f;
 	    padding: 10px 20px;
 	    color: #fff;
 	    height: 100%;

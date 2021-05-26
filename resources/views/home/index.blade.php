@@ -9,190 +9,268 @@
         <section class="banner-section">
 
             <div class="banner-carousel owl-carousel owl-theme">
-
-                @foreach ($banners as $banner)
-                    @if ($banner->status == 1)
-                        <!-- Slide Item -->
-                        <div class="slide-item"
-                            style="background-image: url('{{ asset('storage/' . $banner->image) }}');">
-
-                            <div class="container">
-
-                                <div class="content-box">
-
-                                    @if ($banner->title_active == 1)
-                                        <h2>{{ $banner->title }}</h2>
-                                    @endif
-
-                                    <p class="descricao">
-                                        {{ $banner->description }}
-                                    </p>
-
-                                    <!--<div class="btn-box">
-                                                    <a href="{{ $banner->link }}" class="theme-btn btn-style-two">
-                                                        <span class="btn-title">Conheça Mais</span> <i class="fas fa-arrow-right ml-2"></i>
-                                                    </a>
-                                                </div>-->
-
-                                </div>
-
-                            </div>
-
+                <!-- Slide Item -->
+                <div class="slide-item" style="background-image: url('{{ asset('assets/images/banner-01.jpg') }}');">
+                    <div class="container">
+                        <div class="title">
+                            <h1>Soluções imobiliárias</h1>
+                            <h4>para investidores de alta renda</h4>
                         </div>
-                    @endif
-                @endforeach
-
+                    </div>
+                </div>
             </div>
 
+            <div class="searchblock__content">
+                <form id="formBusca" class="filtros__form" action="" method="get">
+                    <div class="row justify-content-start">
+                        <div class="col-md-4">
+                            <div class="filtros__form__item">
+                                <input type="text" id="geocomplete"
+                                    class="form-control input_form input__location pac-target-input" name="localizacao"
+                                    placeholder="Digite bairro, cidade ou cep" autocomplete="off">
+                                <input name="sublocality" type="hidden" value="">
+                                <input name="administrative_area_level_2" type="hidden" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="filtros__form__item">
+                                <select class="form-control" name="" required="">
+                                    <option value="todos">Categorias</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="filtros__form__item">
+                                <select class="form-control" name="" required="">
+                                    <option value="todos">Tipos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="filtros__form__item">
+                                <button class="btn btn-default ml-2">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </section>
 
-        <section class="imoveis_home">
+        <section class="imoveis-home">
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="title-section">
-                            <h3>Nossos Imóveis</h3>
-                            <h2>Excelentes Oportunidades em Imóveis</h2>
+                            <h2><span>Destaques</span> de Vendas</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec sem sed lectus tempus
+                                maximus. Sed condimentum, tellus et finibus placerat.</p>
                         </div>
                     </div>
                 </div>
 
-                <div>
-
-                    <div class="owl-theme owl-carousel imoveis-carousel">
-
-                        @foreach ($imoveis as $imovel)
-                        <div class="item">
-                            <div class="card">
+                <div class="imoveis mt-5">
+                    <div class="imoveis-carousel owl-carousel owl-theme">
+                            <div class="item">
                                 <div class="img">
-                                    <a href="{{ route('imoveis.info', ['slug' => $imovel->slug]) }}">
-                                        <img src="{{ asset('storage/' . $imovel->image) }}" alt="{{ $imovel->nome }}" title="{{ $imovel->nome }}">
-                                    </a>
+                                    <div class="tag">Pré-lançamento</div>
+                                    <img src="{{ asset('assets/images/img-imovel.jpg') }}" alt="">
                                 </div>
                                 <div class="content">
-                                    <span class="label">{{ $imovel->categoriaNome }}</span>
-                                    <span class="titulo">{{ $imovel->nome }}</span>
-                                    <span class="localidade">{{ $imovel->cidade }}</span>
+                                    <span class="title">Lorem Ipsum Dolor</span>
+                                    <span class="price">R$ 300.000</span>
+                                    <span class="description">Praesent ac mauris at magna auctor sodales. Sed vel vulputate ligula. Praesent sed ultricies augue. Vestibulum ante ipsum primis.</span>
                                     <div class="info">
-                                        <div class="property-meta">
-                                            <ul class="property-meta-list list-inline">
-                                                <li>
-                                                    <span class="label-content">Bairro</span>
-                                                    <span class="label-property banheiro">{{ $imovel->bairro }}</span>
-                                                </li>
-                                                <li>
-                                                    <span class="label-content">Dormitórios</span>
-                                                    <span class="label-property quarto">{{ $imovel->dormitorios }}</span>
-                                                </li>
-                                                <li>
-                                                    <span class="label-content">Metragem</span>
-                                                    <span class="label-property area">{{ $imovel->area_privativa }}</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="btn-mais" href="{{ route('imoveis.info', ['slug' => $imovel->slug]) }}">Saiba mais <i class="fas fa-arrow-right ms-2"></i></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-      
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="empresa_home">
-
-            <div class="escopo">
-
-                <div class="row">
-
-                    <div class="col-texto">
-
-                        <div class="title-section text-left">
-                            <h3>Sobre Nós</h3>
-                            <h2>Construindo Conquistas</h2>
-                        </div>
-
-                        <p class="texto">Donec vehicula laoreet arcu, eget porta velit venenatis a. Aliquam nec eleifend ipsum. Phasellus at sapien at tellus congue accumsan ac et ipsum. Pellentesque.</p>
-
-                        <p class="texto">Nunc nec porttitor diam. Ut ac nulla elementum, suscipit lobortis malesuadaultricies metus id, volutpat ligula. </p>
-
-                        <a class="btn btn-default">Assista o Vídeo <i class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-
-                    <div class="col-img p-0">
-                        <img class="" src="{{ asset('assets/images/video-thumb.jpg') }}" alt="Euromav" title="Euromav">
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="realizados_home">
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-left">
-                        <div class="title-section">
-                            <h2>Projetos Realizados</h2>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div>
-
-                    <div class="owl-theme owl-carousel imoveis-carousel">
-
-                        @foreach ($imoveisRealizados as $imovel)
-
-                            <div class="item">
-                                <div class="card">
-                                    <div class="img">
-                                        <a href="{{ route('imoveis.info', ['slug' => $imovel->slug]) }}">
-                                            <img src="{{ asset('storage/' . $imovel->image) }}" alt="{{ $imovel->nome }}" title="{{ $imovel->nome }}">
-                                        </a>
-                                    </div>
-                                    <div class="content">
-                                        <span class="label">{{ $imovel->categoriaNome }}</span>
-                                        <span class="titulo">{{ $imovel->nome }}</span>
-                                        <span class="localidade">{{ $imovel->cidade }}</span>
-                                        <div class="info">
+                                        <div class="clearfix">
                                             <div class="property-meta">
                                                 <ul class="property-meta-list list-inline">
                                                     <li>
-                                                        <span class="label-content">Bairro</span>
-                                                        <span class="label-property banheiro">{{ $imovel->bairro }}</span>
+                                                        <span class="label-content"><i class="fas fa-bed"></i></span>
+                                                        <span class="label-property quarto">2</span>
                                                     </li>
                                                     <li>
-                                                        <span class="label-content">Dormitórios</span>
-                                                        <span class="label-property quarto">{{ $imovel->dormitorios }}</span>
+                                                        <span class="label-content"><i class="fas fa-bath"></i></span>
+                                                        <span class="label-property banheiro">2</span>
                                                     </li>
                                                     <li>
-                                                        <span class="label-content">Metragem</span>
-                                                        <span class="label-property area">{{ $imovel->area_privativa }}</span>
+                                                        <span class="label-content"><i class="fas fa-ruler-combined"></i></span>
+                                                        <span class="label-property garagem">65m²</span>
                                                     </li>
+                                                    <li><a class="btn btn-sm">Detalhes</a></li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <a class="btn-mais" href="{{ route('imoveis.info', ['slug' => $imovel->slug]) }}"><i class="fas fa-arrow-right ml-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                      
+
+                            <div class="item">
+                                <div class="img">
+                                    <div class="tag">Pré-lançamento</div>
+                                    <img src="{{ asset('assets/images/img-imovel.jpg') }}" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="title">Lorem Ipsum Dolor</span>
+                                    <span class="price">R$ 300.000</span>
+                                    <span class="description">Praesent ac mauris at magna auctor sodales. Sed vel vulputate ligula. Praesent sed ultricies augue. Vestibulum ante ipsum primis.</span>
+                                    <div class="info">
+                                        <div class="clearfix">
+                                            <div class="property-meta">
+                                                <ul class="property-meta-list list-inline">
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bed"></i></span>
+                                                        <span class="label-property quarto">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bath"></i></span>
+                                                        <span class="label-property banheiro">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-ruler-combined"></i></span>
+                                                        <span class="label-property garagem">65m²</span>
+                                                    </li>
+                                                    <li><a class="btn btn-sm">Detalhes</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                        @endforeach
+                            <div class="item">
+                                <div class="img">
+                                    <div class="tag">Pré-lançamento</div>
+                                    <img src="{{ asset('assets/images/img-imovel.jpg') }}" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="title">Lorem Ipsum Dolor</span>
+                                    <span class="price">R$ 300.000</span>
+                                    <span class="description">Praesent ac mauris at magna auctor sodales. Sed vel vulputate ligula. Praesent sed ultricies augue. Vestibulum ante ipsum primis.</span>
+                                    <div class="info">
+                                        <div class="clearfix">
+                                            <div class="property-meta">
+                                                <ul class="property-meta-list list-inline">
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bed"></i></span>
+                                                        <span class="label-property quarto">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bath"></i></span>
+                                                        <span class="label-property banheiro">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-ruler-combined"></i></span>
+                                                        <span class="label-property garagem">65m²</span>
+                                                    </li>
+                                                    <li><a class="btn btn-sm">Detalhes</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="item">
+                                <div class="img">
+                                    <div class="tag">Pré-lançamento</div>
+                                    <img src="{{ asset('assets/images/img-imovel.jpg') }}" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="title">Lorem Ipsum Dolor</span>
+                                    <span class="price">R$ 300.000</span>
+                                    <span class="description">Praesent ac mauris at magna auctor sodales. Sed vel vulputate ligula. Praesent sed ultricies augue. Vestibulum ante ipsum primis.</span>
+                                    <div class="info">
+                                        <div class="clearfix">
+                                            <div class="property-meta">
+                                                <ul class="property-meta-list list-inline">
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bed"></i></span>
+                                                        <span class="label-property quarto">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bath"></i></span>
+                                                        <span class="label-property banheiro">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-ruler-combined"></i></span>
+                                                        <span class="label-property garagem">65m²</span>
+                                                    </li>
+                                                    <li><a class="btn btn-sm">Detalhes</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="img">
+                                    <div class="tag">Pré-lançamento</div>
+                                    <img src="{{ asset('assets/images/img-imovel.jpg') }}" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="title">Lorem Ipsum Dolor</span>
+                                    <span class="price">R$ 300.000</span>
+                                    <span class="description">Praesent ac mauris at magna auctor sodales. Sed vel vulputate ligula. Praesent sed ultricies augue. Vestibulum ante ipsum primis.</span>
+                                    <div class="info">
+                                        <div class="clearfix">
+                                            <div class="property-meta">
+                                                <ul class="property-meta-list list-inline">
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bed"></i></span>
+                                                        <span class="label-property quarto">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bath"></i></span>
+                                                        <span class="label-property banheiro">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-ruler-combined"></i></span>
+                                                        <span class="label-property garagem">65m²</span>
+                                                    </li>
+                                                    <li><a class="btn btn-sm">Detalhes</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="img">
+                                    <div class="tag">Pré-lançamento</div>
+                                    <img src="{{ asset('assets/images/img-imovel.jpg') }}" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="title">Lorem Ipsum Dolor</span>
+                                    <span class="price">R$ 300.000</span>
+                                    <span class="description">Praesent ac mauris at magna auctor sodales. Sed vel vulputate ligula. Praesent sed ultricies augue. Vestibulum ante ipsum primis.</span>
+                                    <div class="info">
+                                        <div class="clearfix">
+                                            <div class="property-meta">
+                                                <ul class="property-meta-list list-inline">
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bed"></i></span>
+                                                        <span class="label-property quarto">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-bath"></i></span>
+                                                        <span class="label-property banheiro">2</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="label-content"><i class="fas fa-ruler-combined"></i></span>
+                                                        <span class="label-property garagem">65m²</span>
+                                                    </li>
+                                                    <li><a class="btn btn-sm">Detalhes</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
 
                     </div>
 
@@ -202,104 +280,141 @@
 
         </section>
 
-        <section class="contato_home">
+        <section class="energy">
+
+            <div class="content">
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-lg-6 texto">
+                        <h2>Porque investir com a <br><span>Energy Imóvies?</span></h2>
+
+                        <p>A Energy Imóveis é uma imobiliária especializada em comercializar empreendimentos exclusivos para
+                            investidores primários qualificados. Atuamos também, no mercado de lançamentos (secundário).</p>
+                        <p>Viabilizamos empreendimentos para nossos clientes de seis a doze meses antes do lançamento
+                            tradicional, desta forma conseguimos rentabilizar o capital do investidor em até 50% no primeiro
+                            ano. Como trata-se de uma sociedade em conta de participação, o investidor é isento de imposto
+                            de renda sobre o lucro imobiliário.</p>
+
+                        <a href="#" class="saiba-mais"><i class="far fa-arrow-alt-circle-right"></i> Saiba Mais</a>
+
+                    </div>
+                    <div class="col-sm-12 col-lg-6 p-0">
+                        <img class="img-fluid" src="{{ asset('assets/images/energy_imoveis.jpg') }}" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="boxes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="box">
+                            <img src="{{ asset('assets/images/icons/icon-01.jpg') }}" alt="">
+                            <h3>Lorem Ipsum</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesen pellentesque.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box">
+                            <img src="{{ asset('assets/images/icons/icon-02.jpg') }}" alt="">
+                            <h3>Lorem Ipsum</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesen pellentesque.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box">
+                            <img src="{{ asset('assets/images/icons/icon-03.jpg') }}" alt="">
+                            <h3>Lorem Ipsum</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesen pellentesque.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box">
+                            <img src="{{ asset('assets/images/icons/icon-04.jpg') }}" alt="">
+                            <h3>Lorem Ipsum</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesen pellentesque.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box">
+                            <img src="{{ asset('assets/images/icons/icon-05.jpg') }}" alt="">
+                            <h3>Lorem Ipsum</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesen pellentesque.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box">
+                            <img src="{{ asset('assets/images/icons/icon-06.jpg') }}" alt="">
+                            <h3>Lorem Ipsum</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesen pellentesque.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="depoimentos">
 
             <div class="container">
 
-                <div class="content-wrapper">
-
-                    <div class="row">
-
-                        <div class="col-lg-4 col-md-12">
-
-                            <div class="box-info">
-    
-                                <h1>Pensando em vender seu terreno?</h1>
-    
-                                <hr>
-    
-                                <h2 class="mb-5">Nós temos a solução na medida certa para você!</h2>
-                                
-                                <a href="tel:5511990009999"><span class="phone-box"><i class="fas fa-phone-alt"></i></span> <span>11 90000-0000</span></a>
-                            </div>
-    
-    
-                        </div>
-
-                        <div class="col-lg-8 col-md-12">
-
-                            <h3>Envie sua Mensagem</h3>
-
-                            <div class="form-contato">
-
-                                <form action="">
-
-                                    <div class="row">
-
-                                        <div class="col-md-12 col-lg-6">
-                                            <div class="form-group mb-3">
-                                                <input type="text" class="form-control" name="nome" placeholder="Nome"
-                                                    required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12 col-lg-6">
-                                            <div class="form-group mb-3">
-                                                <input type="email" class="form-control" name="nome"
-                                                    placeholder="E-mail" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12 col-lg-6">
-                                            <div class="form-group mb-3">
-                                                <input type="text" class="form-control telefone" name="nome"
-                                                    placeholder="Telefone" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12 col-lg-6">
-                                            <div class="form-group mb-3">
-                                                <select name="cidade" class="form-control" require>
-                                                    <option>Selecione uma cidade</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="form-group mb-3">
-                                                <textarea class="form-control" name="mensagem" rows="8"
-                                                    placeholder="Mensagem" require></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="form-group mb-3">
-                                                <button type="submit" class="btn btn-default">Enviar Mensagem <i
-                                                        class="fas fa-arrow-right ms-2"></i></button>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-
-                                </form>
-
-                            </div>
-
-
-                        </div>
-
+                <div class="text-center">
+                    <div class="title-section">
+                        <h2>O que nossos clientes pensam sobre nós?</h2>
                     </div>
                 </div>
+
+                <div class="carrosel-depoimentos owl-carousel owl-theme">
+
+                    <div class="item">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-sm-3 col-md-2 col-lg-2">
+                                <img src="{{ asset('assets/images/img-depoimento.jpg') }}" alt="">
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-5">
+                                <div class="texto">Vestibulum faucibus justo non lectus tincidunt, vel convallis elit mollis. Integer sit amet viverra urna, vel consequat ex.</div>
+                                <div class="autor">- Fulano de Souza</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-sm-3 col-md-2 col-lg-2">
+                                <img src="{{ asset('assets/images/img-depoimento.jpg') }}" alt="">
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-5">
+                                <div class="texto">Vestibulum faucibus justo non lectus tincidunt, vel convallis elit mollis. Integer sit amet viverra urna, vel consequat ex.</div>
+                                <div class="autor">- Fulano de Souza</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-sm-3 col-md-2 col-lg-2">
+                                <img src="{{ asset('assets/images/img-depoimento.jpg') }}" alt="">
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-5">
+                                <div class="texto">Vestibulum faucibus justo non lectus tincidunt, vel convallis elit mollis. Integer sit amet viverra urna, vel consequat ex.</div>
+                                <div class="autor">- Fulano de Souza</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
 
             </div>
 
         </section>
+
 
 
     </div>
     <!-- End Home -->
-    
+
 
 @endsection

@@ -40,7 +40,7 @@
                             <div class="col-sm-2">Status</div>
                             <div class="col-sm-10">
                                 <label class="switch">
-                                    <input type="checkbox" name="status">
+                                    <input type="checkbox" name="status" value="1">
                                     <span class="slider success"></span>
                                 </label>
                             </div>
@@ -62,7 +62,7 @@
                             <div class="col-sm-2">Mostrar Título</div>
                             <div class="col-sm-10">
                                 <label class="switch">
-                                    <input type="checkbox" name="title_active">
+                                    <input type="checkbox" name="title_active" value="1">
                                     <span class="slider success"></span>
                                 </label>
                             </div>

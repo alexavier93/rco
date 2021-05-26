@@ -24,9 +24,7 @@ class BannerResquest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required',
-            'email'         => 'required|email:rfc',
-            'password'      => 'required|min:8',
+            'title'      => 'required|max:100',
         ];
     }
 
@@ -38,9 +36,8 @@ class BannerResquest extends FormRequest
     public function messages()
     {
         return [
-            'required'  => 'O campo :attribute é obrigatório',
-            'email'     => 'Esse e-mail não é válido',
-            'min'       => 'O campo deve ter no mínimo :min caracteres',
+            'required'  => 'O campo é obrigatório',
+            'max'       => 'O campo deve ter no mínimo :max caracteres',
         ];
     }
 }

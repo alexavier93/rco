@@ -187,6 +187,26 @@ __webpack_require__(/*! ./main */ "./resources/js/main.js");
       }
     }
   });
+  $('.carrosel-depoimentos').owlCarousel({
+    loop: true,
+    margin: 10,
+    responsiveClass: true,
+    nav: false,
+    dots: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 1
+      },
+      1000: {
+        items: 1,
+        loop: false,
+        margin: 20
+      }
+    }
+  });
   $('.imoveis-carousel').owlCarousel({
     loop: true,
     margin: 10,
@@ -237,6 +257,13 @@ __webpack_require__(/*! ./main */ "./resources/js/main.js");
       duration: 400,
       effects: "stagger(34ms) rotateX(20deg) scale(0.01) translateZ(1000px) fade",
       easing: "ease"
+    }
+  });
+  $(".youtube").fancybox({
+    openEffect: 'none',
+    closeEffect: 'none',
+    helpers: {
+      media: {}
     }
   }); // Mask
 
@@ -290,9 +317,9 @@ __webpack_require__(/*! ./main */ "./resources/js/main.js");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\rco\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\rco\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\rco\resources\sass\admin\edit.scss */"./resources/sass/admin/edit.scss");
+__webpack_require__(/*! C:\xampp\htdocs\energy\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\energy\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\energy\resources\sass\admin\edit.scss */"./resources/sass/admin/edit.scss");
 
 
 /***/ })

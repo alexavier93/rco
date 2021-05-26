@@ -56,6 +56,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/deleteImage/{image}', [ImovelController::class, 'deleteImage'])->name('deleteImage');
             Route::post('/uploadPlantas', [ImovelController::class, 'uploadPlantas'])->name('uploadPlantas');
             Route::get('/deletePlanta/{planta}', [ImovelController::class, 'deletePlanta'])->name('deletePlanta');
+            Route::post('/uploadLogo', [ImovelController::class, 'uploadLogo'])->name('uploadLogo');
+            Route::get('/deleteLogo/{logo}', [ImovelController::class, 'deleteLogo'])->name('deleteLogo');
             Route::post('/insertProgress', [ImovelController::class, 'insertProgress'])->name('insertProgress');
             Route::get('/deleteProgress/{id}', [ImovelController::class, 'deleteProgress'])->name('deleteProgress');
         });
